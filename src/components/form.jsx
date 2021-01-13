@@ -1,6 +1,28 @@
 import React from "react";
+import { addPost } from "../actions/postActions";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
 
 class Form extends React.Component {
+    constructor(props) {
+        super(props);
+        this.addNewPost = this.addNewPost.bind(this);
+      }
+      addNewPost() {
+        this.props.addPost({
+          id:
+            Math.max(
+              ...this.props.postList.map(function (o) {
+                return o.id;
+              })
+            ) + 1,
+          username: this.usernameInput.value,
+          title: this.titleInput.value,
+          content: this.contentInput.value,
+          date: this.dateInput.value,
+          comments: 0,
+        });
+      }
     render() {
         //new Date().getDate() + "-" + (new Date().getMonth() + 1) + "-" + new Date().getFullYear()
         const {username, title, content, date} = this.props;
@@ -14,7 +36,7 @@ class Form extends React.Component {
                             id="username" type="text" placeholder="Username"
                             ref={usernameInput => this.usernameInput = usernameInput} defaultValue = {username}
                             required />
-                            <label for="username" className="absolute tracking-wide py-2 px-4 mb-4 opacity-0 leading-tight block top-0 left-0 cursor-text">
+                            <label htmlFor="username" className="absolute tracking-wide py-2 px-4 mb-4 opacity-0 leading-tight block top-0 left-0 cursor-text">
                                 Username
                             </label>
                         </div>
@@ -25,7 +47,7 @@ class Form extends React.Component {
                             id="title" type="text" placeholder="Title of post"
                             ref={titleInput => this.titleInput = titleInput} defaultValue = {title}
                             required />
-                            <label for="title" className="absolute tracking-wide py-2 px-4 mb-4 opacity-0 leading-tight block top-0 left-0 cursor-text">
+                            <label htmlFor="title" className="absolute tracking-wide py-2 px-4 mb-4 opacity-0 leading-tight block top-0 left-0 cursor-text">
                                 Title of post
                             </label>
                         </div>
@@ -34,7 +56,7 @@ class Form extends React.Component {
                         <div className="relative w-full appearance-none label-floating">
                             <textarea className="tracking-wide py-2 px-4 mb-3 leading-relaxed appearance-none block w-full bg-gray-200 border border-gray-200 rounded focus:outline-none focus:bg-white focus:border-gray-500"
                                 id="content" type="text" placeholder="Content of post" ref={contentInput => this.contentInput = contentInput} defaultValue = {content}></textarea>
-                                <label for="content" className="absolute tracking-wide py-2 px-4 mb-4 opacity-0 leading-tight block top-0 left-0 cursor-text">Content of post
+                                <label htmlFor="content" className="absolute tracking-wide py-2 px-4 mb-4 opacity-0 leading-tight block top-0 left-0 cursor-text">Content of post
                             </label>
                         </div>
                     </div>
@@ -54,5 +76,18 @@ class Form extends React.Component {
             );
         }
 }
+const mapStateToProps = (state) => {
+    return {
+      postList: state,
+    };
+  };
+const mapDispatchToProps = (dispatch) => {
+    return bindActionCreators(
+      {
+        addPost: addPost,
+      },
+      dispatch
+    );
+  };
   
-export default Form;
+export default connect(mapStateToProps,mapDispatchToProps)(Form);
