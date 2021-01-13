@@ -1,21 +1,43 @@
-import React from 'react';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
-import Navbar from './components/navbar';
-import Cards from './components/cards';
-import Form from './components/form';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Navbar from "./components/navbar.jsx";
+import CardsList from './components/cardsList.jsx';
+import Form from "./components/form.jsx";
+import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
+import {addPost} from './actions/postActions'
 
-function App() {
-  return (
-    <Router>
+class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.addNewPost = this.addNewPost.bind(this);
+  }
+  componentWillMount(){}
+  addNewPost() {
+    this.props.addPost({id:Math.max(...this.props.postList.map(function(o){return o.id})) + 1,username:'',title:'',content:''});
+  }
+  render() {
+    return (
+      <Router>
       <Navbar />
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap max-w-screen-2xl mx-auto">
         <Switch>
           <Route path="/create" component={Form} />
-          <Route path="/" component={Cards} />
+          <Route path="/" component={() => <CardsList post={this.props.postList} />}/>
         </Switch>
       </div>
     </Router>
-  );
+   );
+  }
 }
-
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    postList : state
+  }
+} 
+const mapDispatchToProps = (dispatch) => {
+  return bindActionCreators({
+      addPost:addPost,
+  },dispatch);
+}
+export default connect(mapStateToProps  ,mapDispatchToProps) (App);

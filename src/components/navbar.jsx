@@ -5,7 +5,7 @@ class Navbar extends React.Component {
     render() {
       return (
     <nav className="relative bg-white">
-        <section className="max-w-7xl mx-auto px-4 sm:px-6">
+        <section className="max-w-screen-2xl mx-auto px-4 sm:px-6">
             <div className="flex justify-between items-center border-b-2 border-gray-100 py-6 md:space-x-10">
                 <div className="flex">
                     <Link className="text-lg font-semibold text-green-700 uppercase" to="/">
