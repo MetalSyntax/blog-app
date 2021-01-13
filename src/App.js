@@ -22,14 +22,19 @@ class App extends React.Component {
       <Navbar />
       <div className="flex flex-wrap max-w-screen-2xl mx-auto">
         <Switch>
-          <Route path="/create" component={Form} />
-          <Route path="/" component={() => <CardsList post={this.props.postList} />}/>
+          <Route path="/create">
+            <Form />
+          </Route>
+          <Route path="/">
+            <CardsList post={this.props.postList} />
+         </Route>
         </Switch>
       </div>
     </Router>
    );
   }
 }
+/*<!--<Route path="/" component={() => <CardsList post={this.props.postList} />}/></Route>-->*/
 const mapStateToProps = (state) => {
   return {
     postList : state

@@ -13,24 +13,28 @@ let initialState = [
     username: "John Doe",
     title: "Lorem Ipsum 1",
     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    date: "10-01-2021"
   },
   {
     id: 2,
     username: "Jane Doe",
     title: "Lorem Ipsum 2",
     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    date: "11-01-2021"
   },
   {
     id: 3,
     username: "Terry Adams",
     title: "Lorem Ipsum 3",
     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    date: "12-01-2021"
   },
   {
     id: 4,
     username: "Jenny Smith",
     title: "Lorem Ipsum 4",
     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+    date: "13-01-2021"
   },
 ];
 

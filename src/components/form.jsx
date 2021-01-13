@@ -2,7 +2,8 @@ import React from "react";
 
 class Form extends React.Component {
     render() {
-        const {username,title,content} = this.props;
+        //new Date().getDate() + "-" + (new Date().getMonth() + 1) + "-" + new Date().getFullYear()
+        const {username, title, content, date} = this.props;
         return (
             <section className="flex flex-row flex-wrap mx-auto w-full">
                 <form id="contact-me" className="w-full max-w-3xl mx-auto bg-white p-8 text-gray-700">
@@ -32,17 +33,22 @@ class Form extends React.Component {
                     <div className="flex flex-wrap mb-4">
                         <div className="relative w-full appearance-none label-floating">
                             <textarea className="tracking-wide py-2 px-4 mb-3 leading-relaxed appearance-none block w-full bg-gray-200 border border-gray-200 rounded focus:outline-none focus:bg-white focus:border-gray-500"
-                                id="content" type="text" placeholder="Content of post"ref={contentInput => this.contentInput = contentInput} defaultValue = {content}></textarea>
+                                id="content" type="text" placeholder="Content of post" ref={contentInput => this.contentInput = contentInput} defaultValue = {content}></textarea>
                                 <label for="content" className="absolute tracking-wide py-2 px-4 mb-4 opacity-0 leading-tight block top-0 left-0 cursor-text">Content of post
                             </label>
                         </div>
                     </div>
-                <div className="">
-                    <button className="w-full shadow bg-green-600 hover:bg-green-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-                        type="submit" onClick={this.addNewStudent}>
-                        Save
-                    </button>
-                </div>
+                    <div className="flex flex-wrap mb-4">
+                        <div className="relative w-full appearance-none label-floating">
+                            <input type="date" className="tracking-wide py-2 px-4 mb-3 leading-relaxed appearance-none block w-full bg-gray-200 border border-gray-200 rounded focus:outline-none focus:bg-white focus:border-gray-500" id="date" ref={dateInput => this.dateInput = dateInput} defaultValue = {date} />
+                        </div>
+                    </div>
+                    <div className=""> 
+                        <button className="w-full shadow bg-green-600 hover:bg-green-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+                            type="submit" onClick={this.addNewPost}>
+                            Save
+                        </button>
+                    </div>
                 </form>
             </section>
             );
