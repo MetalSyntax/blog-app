@@ -7,7 +7,7 @@ class Cards extends React.Component {
     return (
         <div className="flex flex-wrap w-full px-4 py-6 md:w-1/3 lg:w-1/3 justify-center" key={this.props.index}>
           <Link to={{pathname: `/${id}`}} className="w-full text-center">
-            <h2 className="text-xl font-semibold tracking-normal text-gray-800 uppercase">
+            <h2 className="text-xl font-semibold tracking-normal text-gray-800 hover:text-green-700 uppercase">
               {title}
             </h2>
           </Link>

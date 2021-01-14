@@ -3,8 +3,8 @@ import Cards from "./cards.jsx";
 
 export default class CardsList extends React.Component {
   render() {
-    let posts = this.props;
-    const divItem = posts.post.map((item, index) => (
+    let posts = this.props.post;
+    const divItem = posts.map((item, index) => (
       <Cards
         key={index}
         post={item}
