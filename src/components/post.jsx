@@ -1,5 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import { faUser, faComments, faCalendar } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class Cards extends React.Component {
   render() {
@@ -13,20 +15,20 @@ class Cards extends React.Component {
           </Link>
           <section className="w-full text-left">
           <span className="w-full xl:w-1/3 text-center text-sm px-1">
-            Author:
+          <FontAwesomeIcon icon={faUser} /> Author:
             <span className="text-green-500 text-sm px-1">{username}</span>
           </span>
           <span className="w-full xl:w-1/3 text-center text-sm px-1">
-            Date: <span className="text-green-500 text-sm px-1">{date}</span>
+          <FontAwesomeIcon icon={faCalendar} /> Date: <span className="text-green-500 text-sm px-1">{date}</span>
           </span>
           <span className="w-full xl:w-1/3 text-center text-sm px-1">
-            Comments: <span className="text-green-500 text-sm px-1">{comments}</span>
+          <FontAwesomeIcon icon={faComments} /> Comments: <span className="text-green-500 text-sm px-1">{comments}</span>
           </span>
           </section>
           <p className="w-full text-left">
           {excerpt}
           </p>
-          <Link to={{pathname: `/${id}`}} className="text-center bg-green-700 text-white border border-green-700 rounded-md px-2 py-1 my-2 hover:text-green-700 hover:bg-white ">
+          <Link to={{pathname: `/${id}`}} className="text-center bg-green-700 text-white border border-green-700 rounded px-2 py-1 my-2 hover:text-green-700 hover:bg-white ">
             Read more
           </Link>
         </div>

@@ -4,7 +4,7 @@ import Navbar from "./components/navbar.jsx";
 import CardsList from "./components/postList.jsx";
 import NotFound from "./components/notFound.jsx";
 import Single from "./components/singlePost.jsx";
-import Form from "./components/form.jsx";
+import Form from "./components/formPost.jsx";
 import { connect } from "react-redux";
 
 class App extends React.Component {

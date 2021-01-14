@@ -4,3 +4,11 @@ export const addPost = post => {
         payload: post
     };
 };
+
+export const addComment = post => {
+    return {
+        type:'ADD_COMMENT',
+        payload: post
+    };
+};
+    
