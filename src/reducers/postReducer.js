@@ -5,11 +5,9 @@ const postReducer = (state = [], action) => {
             localStorage.setItem('posts',JSON.stringify(stateCopy));
             return stateCopy
 
-        /*case FETCH_POST:
-            stateCopy = [...state, action.payload.posts.id];
-            return stateCopy;*/
     default:
         return state;
     }
 }
+
 export default postReducer;

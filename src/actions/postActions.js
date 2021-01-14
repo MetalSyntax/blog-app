@@ -4,9 +4,3 @@ export const addPost = post => {
         payload: post
     };
 };
-/*export const fetchPost = id => {
-    return {
-    type:'FETCH_POST',
-    payload: id
-    }
-};*/

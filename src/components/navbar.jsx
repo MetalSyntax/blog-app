@@ -13,7 +13,7 @@ class Navbar extends React.Component {
                     </Link>
                 </div>
                 <div className="flex">
-                    <Link className="text-base font-medium text-green-500 hover:text-gray-900" to="/create">
+                    <Link className="text-base font-medium text-green-600 hover:text-gray-900" to="/create">
                         Create a new post
                     </Link>
                 </div>

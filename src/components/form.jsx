@@ -26,7 +26,7 @@ class Form extends React.Component {
         });
       }
     render() {
-        const {username, title, content, excerpt ,date} = this.props;
+        const {username, title, content, excerpt} = this.props;
         return (
             <section className="flex flex-row flex-wrap mx-auto w-full">
                 <form id="contact-me" className="w-full max-w-3xl mx-auto bg-white p-8 text-gray-700">
@@ -69,7 +69,7 @@ class Form extends React.Component {
                             </label>
                         </div>
                     </div>
-                    <div className=""> 
+                    <div className="flex flex-wrap mb-4"> 
                         <button className="w-full shadow bg-green-600 hover:bg-green-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
                             type="submit" onClick={this.addNewPost}>
                             Save
@@ -93,11 +93,5 @@ const mapDispatchToProps = (dispatch) => {
       dispatch
     );
   };
-  
-export default connect(mapStateToProps,mapDispatchToProps)(Form);
 
-/*<!--<div className="flex flex-wrap mb-4">
-<div className="relative w-full appearance-none label-floating">
-    <input type="date" className="tracking-wide py-2 px-4 mb-3 leading-relaxed appearance-none block w-full bg-gray-200 border border-gray-200 rounded focus:outline-none focus:bg-white focus:border-gray-500" id="date" ref={dateInput => this.dateInput = dateInput} defaultValue = {date} />
-</div>
-</div>-->*/
+export default connect(mapStateToProps,mapDispatchToProps)(Form);

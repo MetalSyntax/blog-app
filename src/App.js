@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/navbar.jsx";
-import CardsList from "./components/cardsList.jsx";
+import CardsList from "./components/postList.jsx";
 import NotFound from "./components/notFound.jsx";
 import Single from "./components/singlePost.jsx";
 import Form from "./components/form.jsx";
@@ -35,7 +35,5 @@ const mapStateToProps = (state) => {
     postList: state,
   };
 };
+
 export default connect(mapStateToProps, null)(App);
-/*<Route path="/:id">
-  <Single post={this.props.postList}/>
-</Route>*/
