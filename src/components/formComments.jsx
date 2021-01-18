@@ -15,6 +15,9 @@ class FormComments extends React.Component {
         const content = this.contentCommentInput.value;
         this.props.AddComment(parseInt(id), username, content);
         this.formCommentRef.reset();
+        setTimeout(() => {
+          alert("Your comment published Successfully");
+        }, 500);
       }
       render() {
       return (
@@ -27,7 +30,7 @@ class FormComments extends React.Component {
                 className="tracking-wide py-2 px-4 mb-3 leading-relaxed appearance-none block w-10/12 mx-auto bg-gray-200 border border-gray-200 rounded focus:outline-none focus:bg-white focus:border-gray-500"
                 id="username"
                 type="text"
-                placeholder="Username"
+                placeholder="User Name"
                 ref={(usernameCommentInput) =>
                   (this.usernameCommentInput = usernameCommentInput)
                 }

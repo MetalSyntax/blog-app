@@ -9,7 +9,7 @@ class Form extends React.Component {
     this.addNewPost = this.addNewPost.bind(this);
   }
 
-  addNewPost = e => {
+  addNewPost = (e) => {
     e.preventDefault();
     this.props.addPost({
       id: Math.max(...this.props.posts.map(function (o) {return o.id;})) + 1,
@@ -25,6 +25,9 @@ class Form extends React.Component {
         new Date().getFullYear(),
     });
     this.formPostRef.reset();
+    setTimeout(() => {
+      alert("Your article published Successfully, please return to Home page");
+    }, 500)
   }
 
   render() {

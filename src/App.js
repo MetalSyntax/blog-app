@@ -3,7 +3,9 @@ import { Router, Switch, Route } from "react-router-dom";
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import * as actionsCreator from './actions/actionsCreator';
+import ScrollToTop from "./components/scrollToTop.jsx"
 import Navbar from "./components/navbar.jsx";
+import Footer from "./components/footer.jsx";
 import SinglePost from "./components/singlePost.jsx";
 import Form from "./components/formPost.jsx"
 import NotFound from "./components/notFound.jsx";
@@ -14,6 +16,7 @@ class App extends React.Component {
   render() {
     return (
       <Router history={history}>
+      <ScrollToTop />
       <Navbar />
       <div className="flex flex-wrap max-w-screen-2xl mx-auto">
         <Switch>
@@ -29,6 +32,7 @@ class App extends React.Component {
           <Route component={NotFound} />
         </Switch>
         </div>
+        <Footer />
       </Router>
     );
   }
