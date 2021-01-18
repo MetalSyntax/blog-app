@@ -53,7 +53,7 @@ class Form extends React.Component {
                 required
               />
               <label
-                htmlFor="username"
+                htmlFor="User Name"
                 className="absolute tracking-wide py-2 px-4 mb-4 opacity-0 leading-tight block top-0 left-0 cursor-text"
               >
                 Username
