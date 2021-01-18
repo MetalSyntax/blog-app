@@ -1,19 +1,21 @@
 import React from "react";
 import Single from "./single.jsx";
+import Comments from "./comments";
 
-export default class singlePost extends React.Component {
+class SinglePost extends React.Component {
   render() {
-    let posts = this.props.post;
-    let id = this.props.match.params.id;
-    const postId = posts
-      .filter((post) => post.id === parseInt(id))
-      .map((item, index) => <Single key={index} post={item} index={index} />);
+    const posts = this.props.posts;
+    const Id = this.props.match.params.id;
+    const postSingle = posts.filter((post) => post.id === parseInt(Id));
+    const postComments = this.props.comments[Id] || []; 
+
     return (
-      <div>
-        <section className="flex flex-row flex-wrap mx-auto w-full">
-          {postId}
-        </section>
-      </div>
+      <section className="flex flex-row flex-wrap mx-auto w-full">
+        <Single {...this.props} postSingle={postSingle} />
+        <Comments  {...this.props} postComments={postComments}/>
+      </section>
     );
   }
 }
+
+export default SinglePost;

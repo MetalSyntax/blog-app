@@ -1,41 +1,36 @@
 import React from "react";
-import { addComment } from "../actions/postActions";
+import { AddComment } from "../actions/actionsCreator.js";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 
-class Comments extends React.Component {
-    constructor(props) {
+class FormComments extends React.Component {
+      constructor(props) {
         super(props);
         this.addNewComment = this.addNewComment.bind(this);
       }
-      addNewComment() {
-        this.props.addComment({
-            id:
-            Math.max(
-              ...this.props.postList.map(function (o) {
-                return o.id;
-              })
-            ) + 1,
-          username: this.usernameCommentInput.value,
-          content: this.contentCommentInput.value,
-        })
+      addNewComment(e) {
+        e.preventDefault();
+        const { id }= this.props.match.params;
+        const username = this.usernameCommentInput.value;
+        const content = this.contentCommentInput.value;
+        this.props.AddComment(parseInt(id), username, content);
+        this.formCommentRef.reset();
       }
-  render() {
-    const {username, content} = this.props;
-    console.log(this.props)
-    return (
-      <section className="flex flex-row flex-wrap mx-auto w-full">
-        <form className="w-full">
+      render() {
+      return (
+        <section className="flex flex-row flex-wrap mx-auto w-full">
+        <form className="w-full" ref={(el) => this.formCommentRef = el}>
           <div className="flex flex-wrap mb-4">
             <div className="relative w-full appearance-none label-floating">
               <input
-                maxlength="20"
-                className="tracking-wide py-2 px-4 mb-3 leading-relaxed appearance-none block w-full bg-gray-200 border border-gray-200 rounded focus:outline-none focus:bg-white focus:border-gray-500"
+                maxLength="20"
+                className="tracking-wide py-2 px-4 mb-3 leading-relaxed appearance-none block w-10/12 mx-auto bg-gray-200 border border-gray-200 rounded focus:outline-none focus:bg-white focus:border-gray-500"
                 id="username"
                 type="text"
                 placeholder="Username"
-                ref={(usernameCommentInput) => (this.usernameCommentInput = usernameCommentInput)}
-                defaultValue={username}
+                ref={(usernameCommentInput) =>
+                  (this.usernameCommentInput = usernameCommentInput)
+                }
                 required
               />
               <label
@@ -49,12 +44,13 @@ class Comments extends React.Component {
           <div className="flex flex-wrap mb-4">
             <div className="relative w-full appearance-none label-floating">
               <textarea
-                className="tracking-wide py-2 px-4 mb-3 leading-relaxed appearance-none block w-full bg-gray-200 border border-gray-200 rounded focus:outline-none focus:bg-white focus:border-gray-500"
+                className="tracking-wide py-2 px-4 mb-3 leading-relaxed appearance-none block w-10/12 mx-auto bg-gray-200 border border-gray-200 rounded focus:outline-none focus:bg-white focus:border-gray-500"
                 id="content"
                 type="text"
                 placeholder="Content of comment"
-                ref={(contentCommentInput) => (this.contentCommentInput = contentCommentInput)}
-                defaultValue={content}
+                ref={(contentCommentInput) =>
+                  (this.contentCommentInput = contentCommentInput)
+                }
               ></textarea>
               <label
                 htmlFor="content"
@@ -64,9 +60,9 @@ class Comments extends React.Component {
               </label>
             </div>
           </div>
-          <div className="flex flex-wrap mb-4">
+          <div className="flex flex-wrap mb-4 justify-center">
             <button
-              className="w-full shadow bg-green-600 hover:bg-green-700 focus:shadow-outline focus:outline-none text-white font-semibold py-2 px-4 rounded uppercase"
+              className="shadow bg-green-700 hover:bg-green-800 focus:shadow-outline focus:outline-none text-white font-semibold py-2 px-4 rounded uppercase"
               type="submit"
               onClick={this.addNewComment}
             >
@@ -74,24 +70,22 @@ class Comments extends React.Component {
             </button>
           </div>
         </form>
-      </section>
-    );
-  }
+    </section>
+      )
+    }
 }
 const mapStateToProps = (state) => {
     return {
-      postList: state,
+      postwc: state.postwc,
     };
   };
-const mapDispatchToProps = (dispatch) => {
+  
+  const mapDispatchToProps = (dispatch) => {
     return bindActionCreators(
       {
-        addComment: addComment,
+        AddComment: AddComment,
       },
       dispatch
     );
   };
-
-export default connect(mapStateToProps,mapDispatchToProps)(Comments);
-
-/*export default Comments;*/
+  export default connect(mapStateToProps, mapDispatchToProps)(FormComments);
