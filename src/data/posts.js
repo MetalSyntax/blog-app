@@ -8,7 +8,6 @@ const posts = [
     content:
       "My music is at once ambient & electronic, experimental, raw and powerful. I play an eclectic mix of music, from ambient-based tracks to electronic-based tracks, and have recently collaborated with a Brazilian creative DJ. The music I make is often influenced by my own experiences, and the lives around me. I am also a producer & musician, and have been involved in the industry for over five years.",
     date: "10-01-2021",
-    comments: 1,
   },
   {
     id: 2,
@@ -19,7 +18,6 @@ const posts = [
     content:
       "Jason Michael is a very talented young man from Melbourne, Australia. Currently training at UCD under Paul Conroy (Rooftop Music Academy) he has been touring internationally with many artists over 10 years. I’m 19 years old, live on the north coast of England & have also studied at the Royal College Of Music/Cambia University, London. I perform all genres, mainly pop but love to do some acoustic covers too!",
     date: "11-01-2021",
-    comments: 2,
   },
   {
     id: 3,
@@ -30,7 +28,6 @@ const posts = [
     content:
       "James is a London based artist with over 4 years of professional DJ experience as well working within EDM scenes all around Europe, particularly UK. From live sets to background vocals, he’s got it covered. The Nifty Ones are a highly experienced band playing everything from 60's Rock & Roll to 70&80% Motown!",
     date: "12-01-2021",
-    comments: 1,
   },
   {
     id: 4,
@@ -41,7 +38,6 @@ const posts = [
     content:
       "In 2010, Alexander came to rave world with the track Krassen as an independent artist. His story began at the end of 2009 when heard a video about a German girl who was trying out some new ideas on stage where she got sick due one thing or another (i dont know what). So...he goes into trance all night long!",
     date: "13-01-2021",
-    comments: 3,
   },
 ];
 

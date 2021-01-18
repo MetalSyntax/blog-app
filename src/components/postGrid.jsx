@@ -4,8 +4,10 @@ import Posts from "./post.jsx";
 export default class PostGrid extends React.Component {
   render() {
     let posts = this.props.posts;
+    /*let comments = this.props.comments;
+    console.log(comments)*/
     const post = posts.map((item, index) => (
-      <Posts key={index} post={item} index={index}/>
+      <Posts comments={this.props.comments} key={index} post={item} index={index}/>
     ));
     return (
       <div className="flex flex-row flex-wrap mx-auto w-full">

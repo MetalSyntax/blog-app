@@ -8,7 +8,7 @@ class FormComments extends React.Component {
         super(props);
         this.addNewComment = this.addNewComment.bind(this);
       }
-      addNewComment(e) {
+      addNewComment = e => {
         e.preventDefault();
         const { id }= this.props.match.params;
         const username = this.usernameCommentInput.value;
@@ -51,6 +51,7 @@ class FormComments extends React.Component {
                 ref={(contentCommentInput) =>
                   (this.contentCommentInput = contentCommentInput)
                 }
+                required
               ></textarea>
               <label
                 htmlFor="content"
@@ -76,7 +77,8 @@ class FormComments extends React.Component {
 }
 const mapStateToProps = (state) => {
     return {
-      postwc: state.postwc,
+      comments: state.comments,
+      posts: state.posts,
     };
   };
   

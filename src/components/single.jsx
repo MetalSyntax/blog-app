@@ -6,7 +6,7 @@ import FormComments from "./formComments"
 
 class Single extends React.Component {
   render() {
-    const { username, title, content, date, comments } = this.props.postSingle[0];
+    const { username, title, content, date } = this.props.postSingle[0];
 
     return (
       <div
@@ -37,9 +37,6 @@ class Single extends React.Component {
           </Link>
         </section>
         <section className="w-full my-4">
-          <h2 className="text-lg text-left font-semibold uppercase py-2">
-            {comments} Comments
-          </h2>
           <FormComments {...this.props} id={this.props.match.params.id}/>
         </section>
       </div>

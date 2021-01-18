@@ -9,7 +9,7 @@ class Form extends React.Component {
     this.addNewPost = this.addNewPost.bind(this);
   }
 
-  addNewPost(e) {
+  addNewPost = e => {
     e.preventDefault();
     this.props.addPost({
       id: Math.max(...this.props.posts.map(function (o) {return o.id;})) + 1,
@@ -23,7 +23,6 @@ class Form extends React.Component {
         (new Date().getMonth() + 1) +
         "-" +
         new Date().getFullYear(),
-      comments: 0,
     });
     this.formPostRef.reset();
   }
@@ -86,6 +85,7 @@ class Form extends React.Component {
                 type="text"
                 placeholder="Content of post"
                 ref={(contentInput) => (this.contentInput = contentInput)}
+                required
               ></textarea>
               <label
                 htmlFor="content"
@@ -105,6 +105,7 @@ class Form extends React.Component {
                 type="text"
                 placeholder="Excerpt of post"
                 ref={(excerptInput) => (this.excerptInput = excerptInput)}
+                required
               ></textarea>
               <label
                 htmlFor="excerpt"

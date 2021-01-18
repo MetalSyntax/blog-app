@@ -21,7 +21,7 @@ class App extends React.Component {
               <Form />
           </Route>
           <Route exact path="/">
-            <PostGrid posts={this.props.posts} />
+            <PostGrid comments={this.props.comments} posts={this.props.posts} />
           </ Route>
           <Route path="/:id" render={(props) => 
               <SinglePost {...props} key={props.match.params.id} posts={this.props.posts} comments={this.props.comments} />
@@ -34,15 +34,14 @@ class App extends React.Component {
   }
 }
 
-function mapStateToProps(state) {
+const mapStateToProps = (state) => {
   return {
-    /*postwc: state.postwc,*/
     posts: state.posts,
     comments: state.comments,
   };
 };
 
-function mapDispatchToProps (dispatch) {
+const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(actionsCreator, dispatch);
 };
 

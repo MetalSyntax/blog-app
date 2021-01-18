@@ -5,7 +5,7 @@ const posts = (state = map(), action) => {
     case "ADD_POST":
       const statePost = [...state, action.payload];
       localStorage.setItem("posts", JSON.stringify(statePost));
-      return (statePost);
+      return statePost;
 
     default:
       return state;

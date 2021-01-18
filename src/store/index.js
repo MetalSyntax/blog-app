@@ -2,14 +2,12 @@ import {createStore, compose ,applyMiddleware } from "redux";
 import thunk from "redux-thunk"
 import { createBrowserHistory } from "history";
 import rootReducer from '../reducers/index';
-/*import postwc from '../data/postwc';*/
 import posts from '../data/posts';
 import comments from '../data/comments';
 
 const defaultState = {
     posts,
     comments, 
-    /*postwc */
 };
 
 if( localStorage.getItem("posts") === null)
@@ -21,11 +19,6 @@ if( localStorage.getItem("comments") === null)
 localStorage.setItem('comments',JSON.stringify(defaultState.comments));
 else 
 defaultState.comments = JSON.parse(localStorage.getItem('comments'));
-
-/*if( localStorage.getItem("postwc") === null)
-localStorage.setItem('postwc',JSON.stringify(defaultState.postwc));
-else 
-defaultState.postwc = JSON.parse(localStorage.getItem('postwc'));*/
 
 const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
